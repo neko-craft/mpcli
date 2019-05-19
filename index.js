@@ -80,6 +80,7 @@ const core = () => {
                         continue;
                     }
                     select_version = version_list[select_version -1];
+                    break;
                 }
                 fs.appendFileSync(`${project_name}/pom.xml`, assets.pom_xml_file.
                 replaceAll(`{{package_name}}`,package_name).

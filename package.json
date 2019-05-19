@@ -1,7 +1,9 @@
 {
-  "name": "mpcli",
-  "version": "1.0.0",
+  "name": "minecraft-plugins-skeleton-builder",
+  "version": "1.0.2",
   "description": "",
+  "keywords": ["minecraft","java","skeleton","builder","plugins"],
+  "homepage": "https://github.com/akechisatori/mpcli",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +11,7 @@
   "bin": {
     "mpcli": "./index.js"
   },
-  "author": "",
+  "author": "AkechiSatori",
   "license": "ISC",
   "dependencies": {
     "argparse": "^1.0.10",
