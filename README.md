@@ -3,7 +3,7 @@ A Minecraft Plugin Skeleton Builder
 
 ### Install
 
-```npm i minecraft-plugins-skeleton-builder```
+```npm i -g minecraft-plugins-skeleton-builder```
 
 
 ### Example
