@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 const ArgumentParser = require('argparse').ArgumentParser;
+const which = require('which');
+const child_process = require('child_process');
 const argparse = require('argparse');
 const assets = require('./assets');
 const xml2json = require('xml2js');
@@ -81,6 +83,17 @@ const core = () => {
         fs.mkdirSync(`${source_folder_full_path}`, {
             recursive: true
         });
+
+        if (which.sync('git', {nothrow: true})) {
+            const init_git = readline.question(`use Git? (Y/N) : `).toUpperCase();
+            if (init_git == "Y" || init_git == "") {
+                let result = child_process.execSync('git init', {
+                    cwd: `${project_name}`
+                });
+                console.log(result.toString());
+                fs.appendFileSync(`${project_name}/.gitignore`, assets.git_ignore);
+            }
+        }
         axios.get(paperspigot_maven_metadata_url).then((res) => {
             xml2json.parseString(res.data, (error, result) => {
                 var select_version;
