@@ -18,7 +18,29 @@ var parser = new ArgumentParser({
     addHelp: true,
     description: 'Minecraft Plugin Skeleton Builder'
 });
+// parser.addArgument(
+//     ['--project'], {
+//         help: 'Project Name'
+//     }
+// );
+// parser.addArgument(
+//     ['--package'], {
+//         help: 'Package Name'
+//     }
+// );
+// parser.addArgument(
+//     ['--main'], {
+//         help: 'Main Method Name',
+//         defaultValue: 'main'
+//     }
+// );
+// parser.addArgument(
+//     ['--select-version'], {
+//         help: 'PaperSpigot API Version'
+//     }
+// );
 const args = parser.parseArgs();
+
 const deleteall = (path) => {
 	var files = [];
 	if(fs.existsSync(path)) {
@@ -55,7 +77,7 @@ const core = () => {
     }
     try {
         const src_folder = package_name.replaceAll('.','/');
-        const source_folder_full_path = `${project_name}/src/${src_folder}`;
+        const source_folder_full_path = `${project_name}/src/main/java/${src_folder}`;
         fs.mkdirSync(`${source_folder_full_path}`, {
             recursive: true
         });
